@@ -12,15 +12,15 @@ services:
       - RABBITMQ_DEFAULT_USER=zest
       - RABBITMQ_DEFAULT_PASS=iot
 
-  rabbit_all_ms_db:
-    container_name: rabbit_all_ms_db
-    image: mongo:4.1.12
-    ports:
-      - "27019:27017"
-    environment:
-      - MONGODB_DATABASE=rabbit_all_ms_db
-    volumes:
-      - /home/rsml/workspace/test_zastra/db:/data/db
+  # rabbit_all_ms_db:
+  #   container_name: rabbit_all_ms_db
+  #   image: mongo:4.1.12
+  #   ports:
+  #     - "27019:27017"
+  #   environment:
+  #     - MONGODB_DATABASE=rabbit_all_ms_db
+  #   volumes:
+  #     - /home/rsml/workspace/test_zastra/db:/data/db
 
 networks:
   default:

@@ -28,6 +28,7 @@ def route_payload_to_rabbitmq():
         logger.info("end processing")
         
         return rabbit_mq_uploader_status #seg_main_result
+
     elif request.method == 'GET' : # true for get response "GET"
         logger.info("processing GET api call....")
         column_name =  "_id"# To do : need to update "column_name" before deployment 
@@ -36,7 +37,7 @@ def route_payload_to_rabbitmq():
         xy_coords = db_manager_obj.search_data(column_name, search_id)
         logger.info("end processing")
         return xy_coords
-        
+   
 
 if __name__ == '__main__':
   
