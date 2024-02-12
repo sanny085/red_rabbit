@@ -24,7 +24,7 @@ def route_payload_to_rabbitmq():
         logger.info("Rabbit MQ Response - ", rabbit_mq_uploader_status)
         print("Rabbit MQ Response - ", rabbit_mq_uploader_status)
         print("Sucessfully pushed to rabbit-mq")
-        # seg_main_result = seg_main_obj.main()
+        seg_main_result = seg_main_obj.main()
         logger.info("end processing")
         
         return rabbit_mq_uploader_status #seg_main_result

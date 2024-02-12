@@ -23,8 +23,10 @@ class seg_main():
         print("seg_main: initial status: " + status)
         def callbackFunctionForQueueA(ch,method,properties,body):
             data = json.loads(body)
-            db_manager_obj = db_manager(data,db_name = os.environ.get("DB_NAME"),table_name = os.environ.get("TABLE_NAME"),logger=self.logger)
-            status = db_manager_obj.insert_data()
+            print("callbackFunctionForQueueA",data)
+            self.logger.info("The data has been consumed from rabbit mq {}".format(str(data)))
+            # db_manager_obj = db_manager(data,db_name = os.environ.get("DB_NAME"),table_name = os.environ.get("TABLE_NAME"),logger=self.logger)
+            # status = db_manager_obj.insert_data()
             channel.close()
             return status
         channel.basic_consume(queue=os.environ.get("QUEUE"), on_message_callback=callbackFunctionForQueueA, auto_ack=True)
